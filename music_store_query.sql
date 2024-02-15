@@ -32,7 +32,7 @@ limit 1;
 select customer.customer_id , customer.first_name, customer.last_name, sum(invoice.total) as total
 from customer
 join invoice on customer.customer_id = invoice.customer_id
-group by customer.customer_id,customer.first_name, customer.last_name
+group by customer.customer_id
 order by total desc
 limit 1;
 
@@ -57,7 +57,7 @@ join album on album.album_id = track.album_id
 join artist on artist.artist_id = album.artist_id
 join genre on genre.genre_id = track.genre_id
 where genre.name like 'Rock'
-group by artist.artist_id, artist.name
+group by artist.artist_id
 order by number_of_songs desc
 limit 10;
 
